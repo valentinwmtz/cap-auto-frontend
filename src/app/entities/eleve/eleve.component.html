@@ -1,0 +1,39 @@
+<button mat-raised-button color="primary" style="width: 100%;">Ajouter un eleve</button>
+<table class="table table-striped eleve-table" *ngIf="eleves">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Date de naissence</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let eleve of eleves;">
+    <td> {{ eleve?.id }}</td>
+    <td> {{ eleve?.nom }}</td>
+    <td> {{ eleve?.prenom }}</td>
+    <td> {{ eleve?.dateNaissence | date:'dd/MM/yyyy' }}</td>
+    <td class="text-right">
+      <div class="btn-group flex-btn-group-container">
+        <button type="submit"
+                [routerLink]="['/eleve/detail', eleve?.id]"
+                class="btn btn-info btn-sm">
+          <span class="d-none d-md-inline">Voir</span>
+        </button>
+        <button type="submit"
+                [routerLink]="['/eleve/update', eleve?.id]"
+                class="btn btn-primary btn-sm">
+          <span class="d-none d-md-inline">Editer</span>
+        </button>
+        <button type="submit"
+                [routerLink]="['/', { outlets: { popup: 'cours/'+  eleve?.id + '/delete'} }]"
+                replaceUrl="true"
+                queryParamsHandling="merge"
+                class="btn btn-danger btn-sm">
+          <span class="d-none d-md-inline">Suprimer</span>
+        </button>
+      </div>
+  </tr>
+  </tbody>
+</table>
