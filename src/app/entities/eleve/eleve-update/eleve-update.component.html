@@ -1,3 +1,49 @@
-<p>
-  eleve-update works!
-</p>
+<div class="container" style="margin: 2em;">
+  <div class="row" style="justify-content: center">
+    <div class="col-md-3">
+      <img [src]="eleve?.photo || '../../../assets/img/user.png'" alt="photo de profil" style="width: 100%;margin-bottom: 2em;">
+      <button mat-raised-button color="primary" style="width: 100%" (click)="openModifierImageModal()"> Modifier </button>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-md-7">
+      <form [formGroup]="eleveForm" class="form-container">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Nom" formControlName="nom">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" placeholder="Prenom" formControlName="prenom">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="datetime-local" placeholder="Date de naissence" formControlName="dateNaissence">
+        </mat-form-field>
+
+        <form [formGroup]="adresseForm" class="form-container">
+          <mat-form-field>
+            <input matInput type="text" placeholder="CodePostale" formControlName="codePostale">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Rue" formControlName="rue">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Numero" formControlName="numero">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Ville" formControlName="ville">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Pays" formControlName="pays">
+          </mat-form-field>
+        </form>
+
+        <button mat-raised-button color="primary" (click)="updateEleve()"> Enregistrer</button>
+      </form>
+      <p>
+        Form Status: {{ eleveForm.value | json }}
+      </p>
+
+      <p>
+        Form Status: {{ adresseForm.value | json }}
+      </p>
+    </div>
+  </div>
+</div>

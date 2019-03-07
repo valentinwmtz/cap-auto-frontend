@@ -1,0 +1,12 @@
+<div style="margin: 2em;">
+  <form [formGroup]="connexionForm" class="form-container">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Compte ou email" formControlName="usernameOremail">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="connexion()"> Se connecter </button>
+  </form>
+
+</div>

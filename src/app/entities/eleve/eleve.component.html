@@ -3,6 +3,7 @@
   <thead>
   <tr>
     <th scope="col">ID</th>
+    <th scope="col">PHOTO</th>
     <th scope="col">Nom</th>
     <th scope="col">Prenom</th>
     <th scope="col">Date de naissence</th>
@@ -10,6 +11,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let eleve of eleves;">
+    <td><img [src]="eleve?.photo || '../../../assets/img/user.png'" alt="photo de profil" style="width: 2em;height: 2em;"></td>
     <td> {{ eleve?.id }}</td>
     <td> {{ eleve?.nom }}</td>
     <td> {{ eleve?.prenom }}</td>

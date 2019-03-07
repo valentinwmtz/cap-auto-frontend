@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -8,7 +8,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavbarComponent} from './shared/layouts/navbar/navbar.component';
 import {EntityModule} from './entities/entity.module';
 import {HttpClientModule} from '@angular/common/http';
-import {MaterialModule} from './shared/material/material.module';
+import localeFr from '@angular/common/locales/fr';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,14 @@ import {MaterialModule} from './shared/material/material.module';
     BrowserModule,
     NgbModule,
     BrowserAnimationsModule,
-    EntityModule,
     HttpClientModule,
+    EntityModule,
+    AuthModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

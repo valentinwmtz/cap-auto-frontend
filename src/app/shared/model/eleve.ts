@@ -7,6 +7,7 @@ export interface IEleve {
   nom?: string;
   dateNaissence?: Moment;
   adresse?: IAdresse;
+  photo?: string;
 
 }
 

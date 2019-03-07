@@ -1,0 +1,9 @@
+<div style="display: flex;justify-content: center;margin-bottom: -2em">
+  <img [src]="data.eleve?.photo || '../../../assets/img/user.png'" alt="photo de profil" style="width: 15em;height:15em;margin-bottom: 2em;">
+</div>
+<input type="file" #fileInput style="visibility: hidden;width: 0;height: 0;margin: -1em;" (change)="onFileChanged($event)">
+<div style="display: flex">
+  <button mat-raised-button color="primary" type="button" (click)="onNoClick()"> Annuler</button>
+  <button mat-raised-button color="primary" type="button" (click)="fileInput.click()"> Choisir une photo</button>
+  <button mat-raised-button color="primary" type="submit" (click)="onUpload()"> Modifier</button>
+</div>
